@@ -15,7 +15,13 @@ We now want to install another go package using vendoring
     ~/go/hi-project$ cd vendor/
     ~/go/hi-project/vendor$ go get github.com/l3x/hi/...
     ~/go/hi-project/vendor$ cd ..
-    ~/go/hi-project$ nano main.go
+    ~/go/hi-project$ cat <<EOF > main.go
+     package main
+     import "github.com/l3x/hi"
+     func main() {
+        hi.Hi()
+     }
+     EOF
     ~/go/hi-project$ go install
     ~/go/hi-project$ hi-project
     Hi
